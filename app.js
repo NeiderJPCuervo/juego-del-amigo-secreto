@@ -8,6 +8,7 @@
 // y se mostrara un mensaje con el nombre del amigo secreto elegido
 
 let amigos = [];
+let yaSorteado = false;
 
 function agregarAmigo() {
     let amigosInput = document.getElementById('amigo');
@@ -15,6 +16,11 @@ function agregarAmigo() {
 
     if (nombre === "") {
         alert("Por favor, inserte un nombre.");
+        return;
+    }
+    // Solo letras y espacios
+    if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(nombre)) {
+        alert("Solo se permiten letras en el nombre.");
         return;
     }
     if (amigos.includes(nombre)) {
@@ -37,6 +43,10 @@ function mostrarListaAmigos() {
 }
 
 function sortearAmigo() {
+    if (yaSorteado) {
+        alert("Ya se ha realizado el sorteo. Reinicia el juego para volver a sortear.");
+        return;
+    }
     if (amigos.length === 0) {
         alert("No hay amigos para elegir.");
         return;
@@ -44,10 +54,12 @@ function sortearAmigo() {
     const indiceAleatorio = Math.floor(Math.random() * amigos.length);
     const amigoSecreto = amigos[indiceAleatorio];
     document.getElementById('resultado').innerHTML = `🎉 Felicidades, tu amigo secreto es: <b>${amigoSecreto}</b> 🎉`;
+    yaSorteado = true;
 }
 
 function reiniciarJuego() {
     amigos = [];
+    yaSorteado = false;
     mostrarListaAmigos();
     document.getElementById('resultado').innerHTML = "";
     document.getElementById('amigo').value = "";
