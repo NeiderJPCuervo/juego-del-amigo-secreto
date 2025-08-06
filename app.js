@@ -9,8 +9,7 @@
 
 let amigos = [];
 
-function agregarAmigo(event) {
-    if (event) event.preventDefault(); // Evita el envío del formulario
+function agregarAmigo() {
     let amigosInput = document.getElementById('amigo');
     let nombre = amigosInput.value.trim();
 
@@ -44,7 +43,7 @@ function sortearAmigo() {
     }
     const indiceAleatorio = Math.floor(Math.random() * amigos.length);
     const amigoSecreto = amigos[indiceAleatorio];
-    document.getElementById('resultado').textContent = ` Felicidades tu amigo secreto es: ${amigoSecreto}`;
+    document.getElementById('resultado').textContent = `Felicidades tu amigo secreto es: ${amigoSecreto}`;
 }
 
 mostrarListaAmigos();
