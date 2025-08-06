@@ -9,7 +9,8 @@
 
 let amigos = [];
 
-function agregarAmigo() {
+function agregarAmigo(event) {
+    if (event) event.preventDefault(); // Evita el envío del formulario
     let amigosInput = document.getElementById('amigo');
     let nombre = amigosInput.value.trim();
 
