@@ -160,3 +160,26 @@ ul {
 .button-draw:hover {
     background-color: var(--color-button-hover);
 }
+
+/* Botón de reinicio */
+.button-reset {
+    background-color: #FE652B;
+    color: #fff;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    padding: 10px 40px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 16px;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.button-reset:hover {
+    background-color: #d93636;
+    transform: scale(1.05);
+}
